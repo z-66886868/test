@@ -1,4 +1,4 @@
-package com.z;
+package com.z.String;
 
 import java.util.Scanner;
 

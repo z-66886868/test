@@ -1,4 +1,4 @@
-package com.z;
+package com.z.String;
 
 import java.util.StringJoiner;
 
@@ -16,8 +16,12 @@ public class stringJoiner {
         // 添加元素
         stringJoiner.add("a").add("b").add("c");
 
+        // 元素长度
+        int length = stringJoiner.length();
+
         // 打印
         System.out.println(stringJoiner);
+        System.out.println(length);
 
     }
 

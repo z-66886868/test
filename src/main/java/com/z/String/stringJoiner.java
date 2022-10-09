@@ -1,5 +1,7 @@
 package com.z.String;
 
+import com.google.gson.Gson;
+
 import java.util.StringJoiner;
 
 /**
@@ -14,7 +16,7 @@ public class stringJoiner {
         StringJoiner stringJoiner = new StringJoiner("-", "[", "]");
 
         // 添加元素
-        stringJoiner.add("a").add("b").add("c");
+        stringJoiner.add("ajunit").add("b").add("c");
 
         // 元素长度
         int length = stringJoiner.length();
@@ -22,6 +24,9 @@ public class stringJoiner {
         // 打印
         System.out.println(stringJoiner);
         System.out.println(length);
+
+        new Gson();
+
 
     }
 

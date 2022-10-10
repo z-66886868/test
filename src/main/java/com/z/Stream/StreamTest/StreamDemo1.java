@@ -4,6 +4,7 @@ import com.z.Stream.StreamTest.pojo.Author;
 import com.z.Stream.StreamTest.pojo.Book;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
@@ -45,10 +46,24 @@ public class StreamDemo1 {
 //                .skip(1)
 //                .forEach(author -> System.out.println(author.getAge()));
 
-        authors.stream()
-                .flatMap(author -> author.getBooks().stream())
+        //flatMap 将流中的对象转换为流 max min 最大值最小值
+//        Optional<Integer> max = authors.stream()
+//                .flatMap(author -> author.getBooks().stream())
+//                .distinct()
+//                .map(Book::getScore)
+//                .max((o1, o2) -> o2-o1);
+//
+//        System.out.println(max.get());
+
+        //anyMatch一个满足条件返回true      allMatch全部满足条件返回true    nonMatch都不符合条件返回true 否则返回false
+        //findAny 随机获取一个流           findFirst获取第一个流
+
+        Map<String, List<Book>> map = authors.stream()
                 .distinct()
-                .forEach(book -> System.out.println(book));
+                .collect(Collectors.toMap(author -> author.getName(), author -> author.getBooks()));
+
+        System.out.println(map.get("余华"));
+
 
     }
 

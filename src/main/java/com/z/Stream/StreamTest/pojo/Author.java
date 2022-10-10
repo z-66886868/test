@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,13 +18,18 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class Author {
+public class Author implements Comparator {
 
     private Long id;
     private String name;
     private Integer age;
     private String intro;
     private List<Book> books;
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return (int)o1 - (int)o2;
+    }
 
     @Override
     public boolean equals(Object o) {

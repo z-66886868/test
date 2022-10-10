@@ -33,7 +33,11 @@ public class Test {
         list2.add(赵六);
         list2.add(小明);
 
-        List<Student> collect = list1.stream().filter(a -> list2.stream().map(Student::getId).anyMatch(c -> Objects.equals(a.getId(), c))).collect(Collectors.toList());
+        List<Student> collect = list1.stream().filter(
+                a -> list2.stream()
+                        .map(Student::getId).
+                        anyMatch(c -> Objects.equals(a.getId(), c)))
+                .collect(Collectors.toList());
         System.out.println(collect);
 
         //System.out.println(list1.stream().map(Student::getId).collect(Collectors.toList()));

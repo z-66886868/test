@@ -4,6 +4,7 @@ import com.z.Stream.StreamTest.pojo.Author;
 import com.z.Stream.StreamTest.pojo.Book;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -16,6 +17,8 @@ public class StreamDemo1 {
 
     public static void main(String[] args) {
         List<Author> authors = getAuthors();
+
+        new StringBuilder();
         //test1(authors);
         //test2();
         //test3();
@@ -58,13 +61,31 @@ public class StreamDemo1 {
         //anyMatch一个满足条件返回true      allMatch全部满足条件返回true    nonMatch都不符合条件返回true 否则返回false
         //findAny 随机获取一个流           findFirst获取第一个流
 
-        Map<String, List<Book>> map = authors.stream()
-                .distinct()
-                .collect(Collectors.toMap(author -> author.getName(), author -> author.getBooks()));
+//        Map<String, List<Book>> map = authors.stream()
+//                .distinct()
+//                .collect(Collectors.toMap(author -> author.getName(), author -> author.getBooks()));
+//
+//        System.out.println(map.get("余华"));
 
-        System.out.println(map.get("余华"));
+        testAnd();
 
 
+    }
+
+    private static void testAnd() {
+        List<Author> authors = getAuthors();
+        authors.stream().
+                filter(new Predicate<Author>() {
+                    @Override
+                    public boolean test(Author author) {
+                        return author.getAge() > 17;
+                    }
+                }.and(new Predicate<Author>() {
+                    @Override
+                    public boolean test(Author author) {
+                        return author.getName().length() > 1;
+                    }
+                })).forEach(author -> System.out.println(author.getName()));
     }
 
     private static void test4() {

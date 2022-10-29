@@ -38,7 +38,6 @@ public class ErFenTest {
             }else{
                 min = mid + 1;
             }
-
         }
 
     }

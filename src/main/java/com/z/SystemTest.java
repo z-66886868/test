@@ -16,7 +16,7 @@ public class SystemTest{
 
         int[] arr1 = {1,2,3,4,5};
         int[] arr2 = new int[5];
-        System.arraycopy(arr1,0,arr2,1,3);
+        System.arraycopy(arr1,1,arr2,1,2);
 
         for (int i = 0; i < arr2.length; i++) {
             System.out.println(arr2[i]);

@@ -1,6 +1,7 @@
 package com.z.Sort;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 /**
@@ -12,7 +13,9 @@ public class Array {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[1000000];
+
+
+        Integer[] arr = new Integer[1000000];
         Random random = new Random();
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt();
@@ -23,6 +26,9 @@ public class Array {
         long end = System.currentTimeMillis();
 
         System.out.println(end - start);
+
+        Arrays.sort(arr, (o1, o2) -> o2-o1);  //降序排列
+
 
     }
 

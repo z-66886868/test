@@ -11,13 +11,13 @@ public class ErFenTest {
 
         int[] arr = new int[]{11,22,33,44,55,66,77,88,99};
 
-        System.out.println(erfen(arr,88));
+        System.out.println(erfen(arr,44));
 
 //        int [] arr= {1,3,9,12,14,17,24,28,29};
-        int low = 0;
-        int high = arr.length-1;
-        int index = interpolationSearch(arr,low,high,55);
-        System.out.print("所查找元素的位置为：" + index);
+//        int low = 0;
+//        int high = arr.length-1;
+//        int index = interpolationSearch(arr,low,high,55);
+//        System.out.print("所查找元素的位置为：" + index);
 
     }
 
@@ -30,7 +30,7 @@ public class ErFenTest {
             if (min > max){
                 return -1;
             }
-            mid = (min + max) /2;
+            mid = (min + max) / 2;
             if(flag == arr[mid]){
                 return mid;
             }else if (arr[mid] > flag){
